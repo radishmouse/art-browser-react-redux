@@ -1,7 +1,6 @@
 # Met art API
 
 
-
 ## example URL for search
 https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers
 
