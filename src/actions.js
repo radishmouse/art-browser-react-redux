@@ -7,6 +7,7 @@ export const LOADING = 'LOADING';
 
 export function asyncActionGetResults(query) {
     return (dispatch, getState) => {
+        dispatch(actionLoading(true));
         dispatch(actionSearch(query));
         Axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${query}`)            
             .then(apiResults => {                
@@ -15,6 +16,7 @@ export function asyncActionGetResults(query) {
                     console.log(`Got ${apiResults.data.objectIDs.length} results`);
                     dispatch(actionResults(apiResults.data.objectIDs));
                 }
+                dispatch(actionLoading(false));
             })
     }
 }
